@@ -66,86 +66,31 @@ Basic usage of this module is as follows:
 
 ## Resources
 
-The following resources are used by this module:
+| Name | Type |
+|------|------|
+| [azurerm_api_management.apim](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/api_management) | resource |
+| [azurerm_resource_group.rg](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group) | resource |
 
-- [azurerm_api_management.apim](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/api_management) (resource)
-- [azurerm_resource_group.rg](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group) (resource)
+## Inputs
 
-## Required Inputs
-
-The following input variables are required:
-
-### <a name="input_api_management_name"></a> [api_management_name](#input_api_management_name)
-
-Description: Azure api management name
-
-Type: `string`
-
-### <a name="input_location"></a> [location](#input_location)
-
-Description: Azure storage account location
-
-Type: `string`
-
-### <a name="input_publisher_email"></a> [publisher_email](#input_publisher_email)
-
-Description: Email ID of API publishers
-
-Type: `list(string)`
-
-### <a name="input_publisher_name"></a> [publisher_name](#input_publisher_name)
-
-Description: Publisher of API
-
-Type: `list(string)`
-
-### <a name="input_resource_group_name"></a> [resource_group_name](#input_resource_group_name)
-
-Description: Azure Storage Account Rg
-
-Type: `string`
-
-### <a name="input_sku_name_part1"></a> [sku_name_part1](#input_sku_name_part1)
-
-Description: SKU name of API management
-
-Type: `string`
-
-### <a name="input_sku_name_part2"></a> [sku_name_part2](#input_sku_name_part2)
-
-Description: Sku capacity part
-
-Type: `string`
-
-## Optional Inputs
-
-No optional inputs.
+| Name | Description | Type | Required |
+|------|-------------|------|:--------:|
+| <a name="input_api_management_name"></a> [api_management_name](#input_api_management_name) | Azure api management name | `string` | yes |
+| <a name="input_location"></a> [location](#input_location) | Azure storage account location | `string` | yes |
+| <a name="input_publisher_email"></a> [publisher_email](#input_publisher_email) | Email ID of API publishers | `list(string)` | yes |
+| <a name="input_publisher_name"></a> [publisher_name](#input_publisher_name) | Publisher of API | `list(string)` | yes |
+| <a name="input_resource_group_name"></a> [resource_group_name](#input_resource_group_name) | Azure Storage Account Rg | `string` | yes |
+| <a name="input_sku_name_part1"></a> [sku_name_part1](#input_sku_name_part1) | SKU name of API management | `string` | yes |
+| <a name="input_sku_name_part2"></a> [sku_name_part2](#input_sku_name_part2) | Sku capacity part | `string` | yes |
 
 ## Outputs
 
-The following outputs are exported:
-
-### <a name="output_azure_api_management_location"></a> [azure_api_management_location](#output_azure_api_management_location)
-
-Description: Azure API management location
-
-### <a name="output_azure_api_management_name"></a> [azure_api_management_name](#output_azure_api_management_name)
-
-Description: Azure API management name
-
-### <a name="output_azure_api_management_publisher_emailids"></a> [azure_api_management_publisher_emailids](#output_azure_api_management_publisher_emailids)
-
-Description: Azure API management publisher emails
-
-### <a name="output_azure_api_management_publisher_name"></a> [azure_api_management_publisher_name](#output_azure_api_management_publisher_name)
-
-Description: Azure API management
-
-### <a name="output_azure_api_management_sku"></a> [azure_api_management_sku](#output_azure_api_management_sku)
-
-Description: Azure API management SKU
-
-### <a name="output_azure_resource_group_name"></a> [azure_resource_group_name](#output_azure_resource_group_name)
-
-Description: Azure resource group name
+| Name | Description |
+|------|-------------|
+| <a name="output_azure_api_management_location"></a> [azure_api_management_location](#output_azure_api_management_location) | Azure API management location |
+| <a name="output_azure_api_management_name"></a> [azure_api_management_name](#output_azure_api_management_name) | Azure API management name |
+| <a name="output_azure_api_management_publisher_emailids"></a> [azure_api_management_publisher_emailids](#output_azure_api_management_publisher_emailids) | Azure API management publisher emails |
+| <a name="output_azure_api_management_publisher_name"></a> [azure_api_management_publisher_name](#output_azure_api_management_publisher_name) | Azure API management |
+| <a name="output_azure_api_management_sku"></a> [azure_api_management_sku](#output_azure_api_management_sku) | Azure API management SKU |
+| <a name="output_azure_resource_group_name"></a> [azure_resource_group_name](#output_azure_resource_group_name) | Azure resource group name |
 <!-- END_AUTOMATED_TF_DOCS_BLOCK -->
