@@ -9,15 +9,11 @@
 crash.log
 crash.*.log
 
-# Exclude all .tfvars files, which are likely to contain sensitive data, such as
-# password, private keys, and other secrets. These should not be part of version 
-# control as they are data points which are potentially sensitive and subject 
-# to change depending on the environment.
+# Exclude all .tfvars files, which are likely to contain sensitive data
 *.tfvars
 *.tfvars.json
 
-# Ignore override files as they are usually used to override resources locally and so
-# are not checked in
+# Ignore override files
 override.tf
 override.tf.json
 *_override.tf
@@ -27,15 +23,28 @@ override.tf.json
 # !example_override.tf
 
 # Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
-# example: *tfplan*
+# *tfplan*
 
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
-# Ignore hcl file
+
+# Ignore all .hcl files
 **/*.hcl
 
-# Ignore terraform  docs generated readme 
-.git\README.md
-.github\README.md
-README.md
+# # Ignore README.md in the root of the repository
+# **README.md**
+
+# # Ignore README.md files in specific directories
+.git/README.md
+.github/README.md
+
+# # Ensure other README.md files are not ignored
+# !**/README.md
+
+# # Ignore all files in .github directory
+# .github/*
+
+# Un-ignore subdirectories and their contents within .github
+# !.github/**/
+# README./
