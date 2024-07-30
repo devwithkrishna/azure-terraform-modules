@@ -18,17 +18,21 @@ jobs:
       with:
         ref: main
 
-    - name: Render terraform docs and push changes back to PR
-      uses: terraform-docs/gh-actions@main
-      with:
-        recursive: true
-        config-file: .terraform-docs.yml
-        output-file: README.md
-        output-method: inject
+    - name: configure terraform-docs
+      run: |
+        curl -sSLo ./terraform-docs.tar.gz https://terraform-docs.io/dl/v0.18.0/terraform-docs-v0.18.0-$(uname)-amd64.tar.gz
+        tar -xzf terraform-docs.tar.gz
+        chmod +x terraform-docs
+        mv terraform-docs /usr/bin/terraform-docs
+        terraform-docs -v
+    - name: generate terraform docs
+      run: |
+        terraform-docs markdown table -c .terraform-docs.yml --output-file README.md --recursive --output-mode inject .
     - name: checks
       run: |
         ls -la
         git status
+        rm README.md
     - name: Commit and Push Changes
       run: |
         git config user.name 'github-actions'

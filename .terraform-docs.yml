@@ -33,7 +33,7 @@ content: |-
         {{- end }}
         {{- end }}
       }
-    ````
+    ```
 
   {{ .Resources }}
 
