@@ -34,3 +34,8 @@ override.tf.json
 terraform.rc
 # Ignore hcl file
 **/*.hcl
+
+# Ignore terraform  docs generated readme 
+.git\README.md
+.github\README.md
+README.md
