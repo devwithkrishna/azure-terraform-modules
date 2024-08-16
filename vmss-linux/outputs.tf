@@ -1,5 +1,5 @@
 output "subnet_id" {
-  value       = data.azurerm_subnet.example.id
+  value       = data.azurerm_subnet.subnet.id
   description = "Azure Subnet id"
 }
 
