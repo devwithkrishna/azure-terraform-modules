@@ -46,10 +46,10 @@ resource "azurerm_linux_virtual_machine_scale_set" "vmss" {
     version   = "latest"
   }
   network_interface {
-    name    = "${var.vmss_name}" - nic
+    name    = "${var.vmss_name}-nic" 
     primary = true
     ip_configuration {
-      name      = "${var.vmss_name}" - ipconfig
+      name      = "${var.vmss_name}-ipconfig"
       primary   = true
       subnet_id = data.azurerm_subnet.subnet.id
     }
