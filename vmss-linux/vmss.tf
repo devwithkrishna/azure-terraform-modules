@@ -27,6 +27,7 @@ resource "azurerm_linux_virtual_machine_scale_set" "vmss" {
   admin_password                  = random_password.password.result
   sku                             = var.sku_size
   custom_data                     = base64encode(data.local_file.cloudinit.content)
+  priority = var.priority
   tags = {
     Environment     = upper(var.environment)
     Orchestrator    = "Terraform"

@@ -103,3 +103,13 @@ variable "environment" {
   }
 }
 
+variable "priority" {
+  default = ""
+  description = "Type of vmss instances Spot or regular"
+  type = string
+  validation {
+    condition     = contains(["Spot", "Regular"], var.priority)
+    error_message = "Proority Should be either Regular or Spot."
+  }
+}
+
