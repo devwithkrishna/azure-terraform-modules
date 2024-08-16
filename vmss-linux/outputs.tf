@@ -24,7 +24,7 @@ output "data_disks" {
 }
 
 output "os_disk" {
-  value = azurerm_linux_virtual_machine_scale_set.vmss.os_disk.disk_size_gb
+  value = azurerm_linux_virtual_machine_scale_set.vmss.os_disk[0].disk_size_gb
   description = "VMSS os disk size"
 }
 
