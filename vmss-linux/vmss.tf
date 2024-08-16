@@ -57,8 +57,8 @@ resource "azurerm_linux_virtual_machine_scale_set" "vmss" {
   dynamic "data_disk" {
     for_each = var.additional_data_disks
     content {
-      lun                  = each.key
-      disk_size_gb         = each.value
+      lun                  = data_disk.key
+      disk_size_gb         = data_disk.value
       caching              = "ReadWrite"
       storage_account_type = var.additional_data_disks_storage_account_type
 
