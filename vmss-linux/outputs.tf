@@ -28,6 +28,12 @@ output "os_disk" {
   description = "VMSS os disk size"
 }
 
+output "admin_username" {
+  value = nonsensitive(var.admin_username)
+  sensitive = false
+  description = "VMSS user name"
+}
+
 output "admin_password" {
   value = nonsensitive(random_password.password.result)
   sensitive = false

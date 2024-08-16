@@ -60,6 +60,7 @@ resource "azurerm_linux_virtual_machine_scale_set" "vmss" {
       lun                  = data_disk.key
       disk_size_gb         = data_disk.value
       caching              = "ReadWrite"
+      name = "${var.vmss_name}-datadisk"
       storage_account_type = var.additional_data_disks_storage_account_type
 
     }
