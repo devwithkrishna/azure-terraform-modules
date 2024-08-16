@@ -29,8 +29,7 @@ output "os_disk" {
 }
 
 output "admin_username" {
-  value = nonsensitive(var.admin_username)
-  sensitive = false
+  value = var.admin_username
   description = "VMSS user name"
 }
 
