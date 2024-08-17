@@ -113,3 +113,9 @@ variable "priority" {
   }
 }
 
+variable "eviction_policy" {
+  default = "Delete"
+  description = "Azure Spot VM eviction policy Delete or Deallocate"
+  type = string
+}
+

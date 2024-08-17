@@ -34,7 +34,7 @@ output "admin_username" {
 }
 
 output "admin_password" {
-  value = nonsensitive(random_password.password.result)
+  value = random_password.password.result
   sensitive = false
   description = "VMSS user password"
 }
