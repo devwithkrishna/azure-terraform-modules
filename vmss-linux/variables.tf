@@ -104,9 +104,9 @@ variable "environment" {
 }
 
 variable "priority" {
-  default = ""
+  default     = ""
   description = "Type of vmss instances Spot or regular"
-  type = string
+  type        = string
   validation {
     condition     = contains(["Spot", "Regular"], var.priority)
     error_message = "Priority Should be either Regular or Spot."
@@ -114,15 +114,15 @@ variable "priority" {
 }
 
 variable "eviction_policy" {
-  default = "Delete"
+  default     = "Delete"
   description = "Azure Spot VM eviction policy Delete or Deallocate"
-  type = string
+  type        = string
 }
 
 variable "load_balancer_sku" {
-  default = "Basic"
+  default     = "Basic"
   description = "Azure Loadbalancer Skus"
-  type = string
+  type        = string
   validation {
     condition     = contains(["Basic", "Standard", "Gateway"], var.load_balancer_sku)
     error_message = "Load balancer SKU must be one among Basic , Standard or Gateway type."

@@ -26,10 +26,10 @@ resource "azurerm_linux_virtual_machine_scale_set" "vmss" {
   disable_password_authentication = false
   admin_password                  = random_password.password.result
   sku                             = var.sku_size
-  instances = var.default_instance_count
-  priority = var.priority
-  eviction_policy = var.priority == "Spot" ? var.eviction_policy : ""
-  
+  instances                       = var.default_instance_count
+  priority                        = var.priority
+  eviction_policy                 = var.priority == "Spot" ? var.eviction_policy : ""
+
   tags = {
     Environment     = upper(var.environment)
     Orchestrator    = "Terraform"
@@ -48,18 +48,18 @@ resource "azurerm_linux_virtual_machine_scale_set" "vmss" {
     version   = "latest"
   }
   network_interface {
-    name    = "${var.vmss_name}-nic" 
+    name    = "${var.vmss_name}-nic"
     primary = true
     ip_configuration {
       public_ip_address {
-        name = "${var.vmss_name}public-ip"
+        name                    = "${var.vmss_name}public-ip"
         idle_timeout_in_minutes = 4
-        version = "IPv4" 
+        version                 = "IPv4"
       }
-      name      = "${var.vmss_name}-ipconfig"
-      primary   = true
-      subnet_id = data.azurerm_subnet.subnet.id
-      load_balancer_backend_address_pool_ids = ["${azurerm_lb_backend_address_pool.bpepool.id}"]
+      name                                   = "${var.vmss_name}-ipconfig"
+      primary                                = true
+      subnet_id                              = data.azurerm_subnet.subnet.id
+      load_balancer_backend_address_pool_ids = ["${azurerm_lb_backend_address_pool.backend_address_pool.id}"]
     }
   }
   dynamic "data_disk" {
