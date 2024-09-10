@@ -24,7 +24,7 @@ Basic usage of this module is as follows:
       	 cross_tenant_replication_enabled  = false
       	 delete_retention_policy  = 10
       	 environment  = "DEV"
-      	 location  = "centralindia"
+      	 location  = ""
       	 public_network_access_enabled  = true
     }
   ```
