@@ -26,7 +26,6 @@ resource "azurerm_linux_virtual_machine_scale_set" "vmss" {
   disable_password_authentication = false
   admin_password                  = random_password.password.result
   sku                             = var.sku_size
-  custom_data                     = base64encode(data.local_file.cloudinit.content)
   instances = var.default_instance_count
   priority = var.priority
   eviction_policy = var.priority == "Spot" ? var.eviction_policy : ""
