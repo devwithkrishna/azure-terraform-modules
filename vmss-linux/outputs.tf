@@ -15,7 +15,7 @@ output "azure_vmss_rg" {
 
 output "type_of_instances" {
   value       = azurerm_linux_virtual_machine_scale_set.vmss.priority
-  description = "Sopt or Regular instances"
+  description = "Spot or Regular instances"
 }
 
 output "data_disks" {
@@ -44,7 +44,7 @@ output "loadbalancer_id" {
   description = "AzureLoad balancer Id"
 }
 
-output "Load_balancer_frontend_public_ip" {
+output "load_balancer_frontend_public_ip" {
   value       = azurerm_public_ip.lb_pub_ip.ip_address
   description = "Azure load balancer frontend ip address"
 }
