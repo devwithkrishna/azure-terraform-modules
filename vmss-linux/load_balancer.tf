@@ -35,7 +35,7 @@ resource "azurerm_lb_rule" "lb_rule" {
 
 resource "azurerm_lb_probe" "health" {
   loadbalancer_id = azurerm_lb.lb.id
-  name            = "Health Check Probe"
+  name            = "${var.vmss_name}-health-check"
   port            = var.frontend_port
   protocol        = var.protocol
   request_path    = var.request_path
