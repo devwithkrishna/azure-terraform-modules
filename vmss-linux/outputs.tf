@@ -38,3 +38,13 @@ output "admin_password" {
   sensitive   = false
   description = "VMSS user password"
 }
+
+output "loadbalancer_id" {
+  value = azurerm_lb.lb.id
+  description = "AzureLoad balancer Id"
+}
+
+output "Load_balancer_frontend_public_ip" {
+  value = azurerm_public_ip.lb_pub_ip.ip_address
+  description = "Azure load balancer frontend ip address"
+}
