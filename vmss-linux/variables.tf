@@ -129,3 +129,30 @@ variable "load_balancer_sku" {
   }
 }
 
+variable "frontend_port" {
+  default     = 80
+  type        = number
+  description = "Port on which queries for status of application"
+}
+
+variable "backend_port" {
+  default     = 80
+  type        = number
+  description = "Port on which traffic is passed on to application backends"
+}
+variable "request_path" {
+  default     = "/"
+  type        = string
+  description = "Health check path"
+}
+
+variable "protocol" {
+  default     = "Http"
+  description = "Protocol for Load balancing"
+  type        = string
+  validation {
+    condition     = contains(["Http", "Https", "Tcp"], var.protocol)
+    error_message = "Protocol value should be one among Http, Https or Tcp."
+  }
+}
+

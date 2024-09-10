@@ -29,7 +29,7 @@ resource "azurerm_linux_virtual_machine_scale_set" "vmss" {
   instances                       = var.default_instance_count
   priority                        = var.priority
   eviction_policy                 = var.priority == "Spot" ? var.eviction_policy : ""
-
+  custom_data                     = base64encode(data.local_file.cloudinit.content)
   tags = {
     Environment     = upper(var.environment)
     Orchestrator    = "Terraform"
