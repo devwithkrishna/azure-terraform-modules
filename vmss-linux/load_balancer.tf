@@ -30,7 +30,7 @@ resource "azurerm_lb_rule" "lb_rule" {
   frontend_port                  = var.frontend_port
   backend_port                   = var.backend_port
   frontend_ip_configuration_name = "${var.vmss_name}-frontend-ip"
-  backend_address_pool_ids       = azurerm_lb_backend_address_pool.backend_address_pool.id
+  backend_address_pool_ids       = ["${azurerm_lb_backend_address_pool.backend_address_pool.id}"]
 }
 
 resource "azurerm_lb_probe" "health" {
