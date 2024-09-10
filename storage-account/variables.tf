@@ -6,7 +6,7 @@ variable "resource_group_name" {
 variable "location" {
   type = string
   description = "Azure storage account location"
-  default = "centralindia"
+  default = ""
 }
 
 variable "storage_account_name" {
