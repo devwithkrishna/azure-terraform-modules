@@ -49,7 +49,7 @@ resource "azurerm_network_security_rule" "port8080" {
 }
 
 resource "azurerm_network_security_rule" "port4243" {
-  name                        = "AllowAnyCustom8080Inbound"
+  name                        = "AllowAnyCustom4243Inbound"
   priority                    = 180
   description                 = "TCP connection jenkins + docker set"
   direction                   = "Inbound"
