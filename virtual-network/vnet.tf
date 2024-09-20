@@ -47,7 +47,7 @@ resource "azurerm_subnet" "subnet" {
 
 # Associate subnets to NSG
 resource "azurerm_subnet_network_security_group_association" "subnet2nsg" {
-  count = var.subnet_cidrs
+  count = length(var.subnet_cidrs)
   subnet_id = azurerm_subnet.subnet[count.index].id
   network_security_group_id = azurerm_network_security_group.nsg.id
 }

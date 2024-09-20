@@ -20,7 +20,7 @@ output "vnet_address_range" {
 
 output "subnet_ids" {
   description = "List of all subnet IDs"
-  value       = azurerm_subnet.example_subnet[*].id  # Collect all subnet IDs
+  value       = azurerm_subnet.subnet[*].id  # Collect all subnet IDs
 }
 
 output "network_security_group_id" {
