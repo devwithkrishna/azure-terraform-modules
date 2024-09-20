@@ -32,10 +32,10 @@ variable "environment" {
   }
 }
 
-variable "vnet_address_space"{
+variable "vnet_address_space" {
   description = "Azure VNET address space"
   type        = list(string)
-  default = []
+  default     = []
   validation {
     condition     = length(var.vnet_address_space) > 0
     error_message = "The address_space variable must contain at least one CIDR block."
@@ -43,8 +43,8 @@ variable "vnet_address_space"{
 }
 
 variable "subnet_cidrs" {
-  default = []
-  type = list(string)
+  default     = []
+  type        = list(string)
   description = "Azure Subnet Ip addresses"
   validation {
     condition     = length(var.subnet_cidrs) > 0

@@ -27,6 +27,7 @@ resource "azurerm_network_security_rule" "port22" {
   destination_address_prefix  = "VirtualNetwork"
   resource_group_name         = azurerm_resource_group.rg.name
   network_security_group_name = azurerm_network_security_group.nsg.name
+  depends_on                  = [azurerm_network_security_rule.port80]
 }
 
 resource "azurerm_network_security_rule" "port8080" {
@@ -42,6 +43,9 @@ resource "azurerm_network_security_rule" "port8080" {
   destination_address_prefix  = "VirtualNetwork"
   resource_group_name         = azurerm_resource_group.rg.name
   network_security_group_name = azurerm_network_security_group.nsg.name
+  depends_on = [azurerm_network_security_rule.port22,
+    azurerm_network_security_rule.port80
+  ]
 }
 
 resource "azurerm_network_security_rule" "port4243" {
@@ -57,4 +61,7 @@ resource "azurerm_network_security_rule" "port4243" {
   destination_address_prefix  = "VirtualNetwork"
   resource_group_name         = azurerm_resource_group.rg.name
   network_security_group_name = azurerm_network_security_group.nsg.name
+  depends_on = [azurerm_network_security_rule.port22,
+    azurerm_network_security_rule.port80, azurerm_network_security_rule.port8080
+  ]
 }
