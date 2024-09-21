@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "rg" {
-  name     = var.resource_group_name
+  name     = upper(var.resource_group_name)
   location = var.location
   tags = {
     Environment     = upper(var.environment)
@@ -10,9 +10,9 @@ resource "azurerm_resource_group" "rg" {
 }
 
 resource "azurerm_log_analytics_workspace" "loganalytics_ws" {
-  name = var.loganalytics_workspace_name
+  name = upper(var.loganalytics_workspace_name)
   sku = var.loganalytics_sku
-  resource_group_name = var.resource_group_name
+  resource_group_name = azurerm_resource_group.rg.name
   location = var.location
   retention_in_days = var.loganalytics_retention_period
 }
