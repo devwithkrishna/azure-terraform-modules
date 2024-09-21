@@ -1,0 +1,32 @@
+name: create-root-readme
+
+on:
+  workflow_run:
+    workflows: ["generate-terraform-docs"] # Runs after completion of generate-terraform-docs workflow
+    types:
+    - completed
+
+jobs:
+  create-root-readme:
+
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+    - name: Check out the repository
+      uses: actions/checkout@v4
+
+    - name: Ensure tree command is installed
+      run: sudo apt update && apt-get install -y tree
+
+    - name: Run the tree generation script
+      run: |
+        bash create-readme.sh
+
+    - name: Commit and Push Changes
+      run: |
+        git config user.name 'github-actions'
+        git config user.email 'actions@github.com'
+        git add .
+        git commit -m "Update documentation"
+        git push
