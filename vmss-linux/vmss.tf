@@ -6,6 +6,8 @@ resource "azurerm_resource_group" "rg" {
     Orchestrator    = "Terraform"
     DisplayName     = upper(var.resource_group_name)
     ApplicationName = lower(var.application_name)
+    Temporary       = upper(var.temporary)
+
   }
 }
 
@@ -35,6 +37,8 @@ resource "azurerm_linux_virtual_machine_scale_set" "vmss" {
     Orchestrator    = "Terraform"
     DisplayName     = upper(var.vmss_name)
     ApplicationName = lower(var.application_name)
+    Temporary       = upper(var.temporary)
+
   }
   os_disk {
     caching              = "ReadWrite"

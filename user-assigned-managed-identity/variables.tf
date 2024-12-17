@@ -1,29 +1,30 @@
 variable "resource_group_name" {
-  default     = ""
-  description = "Azure Vnet resource group name"
+  default     = "testrg"
+  description = "Azure resource group name to create managed identity"
   type        = string
 }
 
-variable "vnet_name" {
-  default     = ""
-  description = "Azure Vnet name"
+variable "managed_identity_name" {
+  default     = "test"
+  description = "Name of user assigned managed identity in Azure"
   type        = string
 }
 
 variable "location" {
-  default     = ""
+  default     = "centralindia"
   description = "Azure location"
   type        = string
 }
 
+
 variable "application_name" {
-  default     = ""
-  description = "Azure application name tag"
+  default     = "devwithkrishna"
+  description = "Azure application name tag value"
   type        = string
 }
 
 variable "environment" {
-  default     = ""
+  default     = "DEV"
   description = "Environment tag value in Azure"
   type        = string
   validation {
@@ -31,27 +32,6 @@ variable "environment" {
     error_message = "Environment value should be one among DEV or QA or UAT or PROD."
   }
 }
-
-variable "vnet_address_space" {
-  description = "Azure VNET address space"
-  type        = list(string)
-  default     = []
-  validation {
-    condition     = length(var.vnet_address_space) > 0
-    error_message = "The address_space variable must contain at least one CIDR block."
-  }
-}
-
-variable "subnet_cidrs" {
-  default     = []
-  type        = list(string)
-  description = "Azure Subnet Ip addresses"
-  validation {
-    condition     = length(var.subnet_cidrs) > 0
-    error_message = "Atleast a single subnet CIDR is required."
-  }
-}
-
 
 variable "temporary" {
   default     = "TRUE"

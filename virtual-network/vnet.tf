@@ -6,6 +6,7 @@ resource "azurerm_resource_group" "rg" {
     Orchestrator    = "Terraform"
     DisplayName     = upper(var.resource_group_name)
     ApplicationName = lower(var.application_name)
+    Temporary       = upper(var.temporary)
   }
 }
 
@@ -19,6 +20,8 @@ resource "azurerm_network_security_group" "nsg" {
     Orchestrator    = "Terraform"
     DisplayName     = upper(var.resource_group_name)
     ApplicationName = lower(var.application_name)
+    Temporary       = upper(var.temporary)
+
   }
 }
 
@@ -33,6 +36,8 @@ resource "azurerm_virtual_network" "vnet" {
     Orchestrator    = "Terraform"
     DisplayName     = upper(var.resource_group_name)
     ApplicationName = lower(var.application_name)
+    Temporary       = upper(var.temporary)
+
   }
 }
 

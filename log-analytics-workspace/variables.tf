@@ -1,27 +1,27 @@
 variable "resource_group_name" {
-  default = ""
+  default     = ""
   description = "Azure resource group name to create log analytics workspace"
-  type = string
+  type        = string
 }
 
 variable "location" {
-  default = ""
+  default     = ""
   description = "Azure location"
-  type = string
+  type        = string
 }
 
 variable "loganalytics_workspace_name" {
-  default = ""
-  type = string
+  default     = ""
+  type        = string
   description = "Loganalytics workspace name"
 }
 
 variable "loganalytics_retention_period" {
-  default = 7
+  default     = 7
   description = "Loganalytics logs retention period"
-  type = number
+  type        = number
   validation {
-    condition = var.loganalytics_retention_period == 7 || (var.loganalytics_retention_period >= 30 && var.loganalytics_retention_period <= 730)
+    condition     = var.loganalytics_retention_period == 7 || (var.loganalytics_retention_period >= 30 && var.loganalytics_retention_period <= 730)
     error_message = "The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730."
   }
 
@@ -44,12 +44,23 @@ variable "environment" {
 }
 
 variable "loganalytics_sku" {
-  default = "PerGB2018"
-  type = string
+  default     = "PerGB2018"
+  type        = string
   description = "Specifies the SKU of the Log Analytics Workspace"
   validation {
     condition     = contains(["PerNode", "Premium", "Standard", "Standalone", "Unlimited", "CapacityReservation", "PerGB2018"], var.loganalytics_sku)
     error_message = "Log analytics SKU should be one among PerNode, Premium, Standard, Standalone, Unlimited, CapacityReservation or PerGB2018 ."
   }
+}
+
+variable "temporary" {
+  default     = "TRUE"
+  description = "Temporary tag value in Azure"
+  type        = string
+  validation {
+    condition     = contains(["TRUE", "FALSE"], upper(var.temporary))
+    error_message = "The temporary tag value must be either 'TRUE' or 'FALSE'."
+  }
+
 }
 
