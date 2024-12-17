@@ -4,7 +4,7 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement_terraform) | ~> 1.3 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement_azurerm) | ~> 3.0 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement_azurerm) | <= 4.0 |
 | <a name="requirement_random"></a> [random](#requirement_random) | >= 3.1 |
 ## Usage
 Basic usage of this module is as follows:
@@ -26,6 +26,7 @@ Basic usage of this module is as follows:
       	 environment  = "DEV"
       	 location  = ""
       	 public_network_access_enabled  = true
+      	 temporary  = "TRUE"
     }
   ```
 
@@ -51,6 +52,7 @@ Basic usage of this module is as follows:
 | <a name="input_public_network_access_enabled"></a> [public_network_access_enabled](#input_public_network_access_enabled) | Whether the public network access is enabled | `bool` | no |
 | <a name="input_resource_group_name"></a> [resource_group_name](#input_resource_group_name) | Azure Storage Account Rg | `string` | yes |
 | <a name="input_storage_account_name"></a> [storage_account_name](#input_storage_account_name) | Azure Storage Account name | `string` | yes |
+| <a name="input_temporary"></a> [temporary](#input_temporary) | Temporary tag value in Azure | `string` | no |
 
 ## Outputs
 

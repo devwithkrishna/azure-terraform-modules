@@ -18,6 +18,7 @@ Basic usage of this module is as follows:
       	 location  = ""
       	 resource_group_name  = ""
       	 subnet_cidrs  = []
+      	 temporary  = "TRUE"
       	 vnet_address_space  = []
       	 vnet_name  = ""
     }
@@ -46,6 +47,7 @@ Basic usage of this module is as follows:
 | <a name="input_location"></a> [location](#input_location) | Azure location | `string` | no |
 | <a name="input_resource_group_name"></a> [resource_group_name](#input_resource_group_name) | Azure Vnet resource group name | `string` | no |
 | <a name="input_subnet_cidrs"></a> [subnet_cidrs](#input_subnet_cidrs) | Azure Subnet Ip addresses | `list(string)` | no |
+| <a name="input_temporary"></a> [temporary](#input_temporary) | Temporary tag value in Azure | `string` | no |
 | <a name="input_vnet_address_space"></a> [vnet_address_space](#input_vnet_address_space) | Azure VNET address space | `list(string)` | no |
 | <a name="input_vnet_name"></a> [vnet_name](#input_vnet_name) | Azure Vnet name | `string` | no |
 

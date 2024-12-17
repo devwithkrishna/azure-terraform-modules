@@ -32,6 +32,7 @@ Basic usage of this module is as follows:
       	 resource_group_name  = ""
       	 sku_size  = ""
       	 subnet_name  = ""
+      	 temporary  = "TRUE"
       	 vmss_name  = ""
       	 vnet_name  = ""
       	 vnet_resource_group  = ""
@@ -76,6 +77,7 @@ Basic usage of this module is as follows:
 | <a name="input_resource_group_name"></a> [resource_group_name](#input_resource_group_name) | Azure VMSS resource group name | `string` | no |
 | <a name="input_sku_size"></a> [sku_size](#input_sku_size) | Azure VMSS sku | `string` | no |
 | <a name="input_subnet_name"></a> [subnet_name](#input_subnet_name) | Azure subnet name to create vmss | `string` | no |
+| <a name="input_temporary"></a> [temporary](#input_temporary) | Temporary tag value in Azure | `string` | no |
 | <a name="input_vmss_name"></a> [vmss_name](#input_vmss_name) | Azure VMSS name | `string` | no |
 | <a name="input_vnet_name"></a> [vnet_name](#input_vnet_name) | Azure Vnet Name | `string` | no |
 | <a name="input_vnet_resource_group"></a> [vnet_resource_group](#input_vnet_resource_group) | Azure Vnet resource group | `string` | no |

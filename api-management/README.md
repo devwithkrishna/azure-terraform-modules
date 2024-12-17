@@ -16,6 +16,11 @@ Basic usage of this module is as follows:
       	 resource_group_name  = 
       	 sku_name_part1  = 
       	 sku_name_part2  = 
+      
+	 # Optional variables
+      	 application_name  = ""
+      	 environment  = ""
+      	 temporary  = "TRUE"
     }
   ```
 
@@ -31,12 +36,15 @@ Basic usage of this module is as follows:
 | Name | Description | Type | Required |
 |------|-------------|------|:--------:|
 | <a name="input_api_management_name"></a> [api_management_name](#input_api_management_name) | Azure api management name | `string` | yes |
+| <a name="input_application_name"></a> [application_name](#input_application_name) | Azure application name tag | `string` | no |
+| <a name="input_environment"></a> [environment](#input_environment) | Environment tag value in Azure | `string` | no |
 | <a name="input_location"></a> [location](#input_location) | Azure storage account location | `string` | yes |
 | <a name="input_publisher_email"></a> [publisher_email](#input_publisher_email) | Email ID of API publishers | `list(string)` | yes |
 | <a name="input_publisher_name"></a> [publisher_name](#input_publisher_name) | Publisher of API | `list(string)` | yes |
 | <a name="input_resource_group_name"></a> [resource_group_name](#input_resource_group_name) | Azure Storage Account Rg | `string` | yes |
 | <a name="input_sku_name_part1"></a> [sku_name_part1](#input_sku_name_part1) | SKU name of API management | `string` | yes |
 | <a name="input_sku_name_part2"></a> [sku_name_part2](#input_sku_name_part2) | Sku capacity part | `string` | yes |
+| <a name="input_temporary"></a> [temporary](#input_temporary) | Temporary tag value in Azure | `string` | no |
 
 ## Outputs
 

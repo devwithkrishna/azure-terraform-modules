@@ -19,6 +19,7 @@ Basic usage of this module is as follows:
       	 loganalytics_sku  = "PerGB2018"
       	 loganalytics_workspace_name  = ""
       	 resource_group_name  = ""
+      	 temporary  = "TRUE"
     }
   ```
 
@@ -40,6 +41,7 @@ Basic usage of this module is as follows:
 | <a name="input_loganalytics_sku"></a> [loganalytics_sku](#input_loganalytics_sku) | Specifies the SKU of the Log Analytics Workspace | `string` | no |
 | <a name="input_loganalytics_workspace_name"></a> [loganalytics_workspace_name](#input_loganalytics_workspace_name) | Loganalytics workspace name | `string` | no |
 | <a name="input_resource_group_name"></a> [resource_group_name](#input_resource_group_name) | Azure resource group name to create log analytics workspace | `string` | no |
+| <a name="input_temporary"></a> [temporary](#input_temporary) | Temporary tag value in Azure | `string` | no |
 
 ## Outputs
 
