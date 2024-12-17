@@ -52,3 +52,15 @@ variable "subnet_cidrs" {
   }
 }
 
+
+variable "temporary" {
+  default     = "TRUE"
+  description = "Temporary tag value in Azure"
+  type        = string
+  validation {
+    condition     = contains(["TRUE", "FALSE"], upper(var.temporary))
+    error_message = "The temporary tag value must be either 'TRUE' or 'FALSE'."
+  }
+
+}
+
