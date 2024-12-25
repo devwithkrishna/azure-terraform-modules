@@ -1,17 +1,17 @@
 variable "resource_group_name" {
-  default     = "testrg"
+  default     = ""
   description = "Azure resource group name to create managed identity"
   type        = string
 }
 
 variable "managed_identity_name" {
-  default     = "test"
+  default     = ""
   description = "Name of user assigned managed identity in Azure"
   type        = string
 }
 
 variable "location" {
-  default     = "centralindia"
+  default     = ""
   description = "Azure location"
   type        = string
 }

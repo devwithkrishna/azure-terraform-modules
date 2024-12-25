@@ -14,10 +14,10 @@ Basic usage of this module is as follows:
 	 # Optional variables
       	 application_name  = "devwithkrishna"
       	 environment  = "DEV"
-      	 location  = "centralindia"
-      	 managed_identity_name  = "test"
-      	 resource_group_name  = "testrg"
-      	 temporary  = "TRUE"
+      	 location  = ""
+      	 managed_identity_name  = ""
+      	 resource_group_name  = ""
+      	 temporary  = ""
     }
   ```
 
