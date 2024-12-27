@@ -147,9 +147,9 @@ variable "subnet_name" {
   type        = string
 }
 
-variable "service_cidr_subnet_name" {
+variable "service_cidr_subnet" {
   default     = "192.168.0.0/16"
-  description = "Azure service cidr subnet name"
+  description = "Azure service cidr subnet"
   type        = string
 }
 

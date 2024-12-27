@@ -41,15 +41,11 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
     network_plugin_mode = var.network_plugin_mode
     network_policy      = var.network_policy
     pod_cidr            = var.pod_cidr_range
-    service_cidr        = var.service_cidr_subnet_name # data.azurerm_subnet.service_cidr.address_prefix
+    service_cidr        = var.service_cidr_subnet 
     load_balancer_sku   = var.load_balancer_sku
-    dns_service_ip      = cidrhost((var.service_cidr_subnet_name), 5) # 5th ip on service cidr subnet
+    dns_service_ip      = cidrhost((var.service_cidr_subnet), 5) # 5th ip on service cidr subnet
   }
 
-  # identity {
-  #   type         = "UserAssigned"
-  #   identity_ids = [azurerm_user_assigned_identity.uami.id]
-  # }
   service_principal {
     client_id = data.azurerm_key_vault_secret.appid.value
     client_secret = data.azurerm_key_vault_secret.secret.value
