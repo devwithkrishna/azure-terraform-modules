@@ -48,3 +48,5 @@ terraform.rc
 # Un-ignore subdirectories and their contents within .github
 # !.github/**/
 # README./
+
+*.out
