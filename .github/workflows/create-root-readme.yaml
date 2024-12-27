@@ -2,7 +2,7 @@ name: create-root-readme
 
 on:
   workflow_run:
-    workflows: ["generate-terraform-docs"] # Runs after completion of generate-terraform-docs workflow
+    workflows: [ "generate-terraform-docs" ] # Runs after completion of generate-terraform-docs workflow
     types:
     - completed
 
@@ -16,6 +16,13 @@ jobs:
     - name: Check out the repository
       uses: actions/checkout@v4
 
+    - name: Token generator
+      uses: githubofkrishnadhas/github-access-using-githubapp@v2
+      id: token-generation
+      with:
+        github_app_id: ${{ secrets.TOKEN_GENERATOR_APPID }}
+        github_app_private_key: ${{ secrets.TOKEN_GENERATOR_PRIVATE_KEY }}
+
     - name: Ensure tree command is installed
       run: sudo apt update && sudo apt-get install -y tree
 
@@ -24,9 +31,12 @@ jobs:
         bash create-readme.sh
 
     - name: Commit and Push Changes
+      env:
+        GITHUB_TOKEN: ${{ steps.token.outputs.token }}
       run: |
         git config user.name 'github-actions'
         git config user.email 'actions@github.com'
         git add .
         git commit -m "Update documentation"
+        git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/devwithkrishna/azure-terraform-modules.git
         git push
