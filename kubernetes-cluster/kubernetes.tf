@@ -11,14 +11,6 @@ resource "azurerm_resource_group" "rg" {
   }
 }
 
-# Contributor role assignment on subscription level for SP
-resource "azurerm_role_assignment" "role" {
-  scope                = data.azurerm_subscription.primary.id
-  role_definition_name = "Contributor"
-  principal_id         = data.azuread_service_principal.sp.object_id
-  depends_on = [ azurerm_kubernetes_cluster.aks_cluster ]
-}
-
 # Create AKS cluster, nodepools, loadbalancer etc
 resource "azurerm_kubernetes_cluster" "aks_cluster" {
   name                      = upper(var.aks_cluster_name)
