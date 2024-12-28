@@ -15,6 +15,7 @@ Basic usage of this module is as follows:
       	 aks_cluster_name  = ""
       	 aks_node_resource_group_name  = ""
       	 application_name  = ""
+      	 authentication_method  = ""
       	 automatic_upgrade_channel  = ""
       	 cluster_admin_group_names  = [
   ""
@@ -88,6 +89,7 @@ Basic usage of this module is as follows:
 | <a name="input_aks_cluster_name"></a> [aks_cluster_name](#input_aks_cluster_name) | Name of Aks cluster in Azure | `string` | no |
 | <a name="input_aks_node_resource_group_name"></a> [aks_node_resource_group_name](#input_aks_node_resource_group_name) | Azure node resource group name | `string` | no |
 | <a name="input_application_name"></a> [application_name](#input_application_name) | Azure application name tag value | `string` | no |
+| <a name="input_authentication_method"></a> [authentication_method](#input_authentication_method) | Specify 'identity' to use SystemAssigned identity or 'service_principal' to use service principal | `string` | no |
 | <a name="input_automatic_upgrade_channel"></a> [automatic_upgrade_channel](#input_automatic_upgrade_channel) | The upgrade channel for this Kubernetes Cluster | `string` | no |
 | <a name="input_cluster_admin_group_names"></a> [cluster_admin_group_names](#input_cluster_admin_group_names) | Name of Azure AD groups to provide cluster admin permissions. | `list(string)` | no |
 | <a name="input_default_nodepool_autoscaling"></a> [default_nodepool_autoscaling](#input_default_nodepool_autoscaling) | Enable auto scaling in default nodepool | `bool` | no |
