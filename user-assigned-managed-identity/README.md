@@ -17,7 +17,7 @@ Basic usage of this module is as follows:
       	 location  = ""
       	 managed_identity_name  = ""
       	 resource_group_name  = ""
-      	 temporary  = ""
+      	 temporary  = "TRUE"
     }
   ```
 

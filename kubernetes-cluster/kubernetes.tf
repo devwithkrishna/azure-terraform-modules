@@ -53,12 +53,6 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
     }
   }
 
-
-  # service_principal {
-  #   client_id = data.azurerm_key_vault_secret.appid.value
-  #   client_secret = data.azurerm_key_vault_secret.secret.value
-  # }
-
   workload_identity_enabled = var.workload_identity_enabled
   oidc_issuer_enabled = var.workload_identity_enabled ? true : false
 

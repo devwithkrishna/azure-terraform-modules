@@ -344,6 +344,7 @@ variable "kubernetes_version" {
     error_message = "The version must be in the format 'major.minor.patch', where major, minor, and patch are non-negative integers."
   }
 }
+
 variable "authentication_method" {
   description = "Specify 'identity' to use SystemAssigned identity or 'service_principal' to use service principal"
   type        = string
