@@ -38,9 +38,19 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
     dns_service_ip      = cidrhost((var.service_cidr_subnet), 5) # 5th ip on service cidr subnet
   }
 
-  service_principal {
-    client_id = data.azurerm_key_vault_secret.appid.value
-    client_secret = data.azurerm_key_vault_secret.secret.value
+  dynamic "identity" {
+    for_each = var.authentication_method == "identity" ? [1] : []
+    content {
+      type = "SystemAssigned"
+    }
+  }
+
+  dynamic "service_principal" {
+    for_each = var.authentication_method == "service_principal" ? [1] : []
+    content {
+      client_id = data.azurerm_key_vault_secret.appid.value
+      client_secret = data.azurerm_key_vault_secret.secret.value
+    }
   }
 
   workload_identity_enabled = var.workload_identity_enabled
