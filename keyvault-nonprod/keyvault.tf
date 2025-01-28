@@ -27,7 +27,7 @@ resource "azurerm_key_vault" "kv" {
 
   public_network_access_enabled = var.public_network_access_enabled
 
-  access_policy = {
+  access_policy {
     tenant_id = data.azurerm_client_config.current.tenant_id
     object_id = data.azurerm_client_config.current.object_id
     
