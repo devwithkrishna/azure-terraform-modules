@@ -6,6 +6,9 @@ on:
     types:
     - completed
 
+permissions:
+  contents: write
+
 jobs:
   create-root-readme:
 
@@ -34,9 +37,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ steps.token-generation.outputs.token }}
       run: |
-        git config user.name 'github-actions'
+        git config user.name 'github-actions-bot'
         git config user.email 'actions@github.com'
         git add .
         git commit -m "Update documentation"
-        git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/devwithkrishna/azure-terraform-modules.git
-        git push origin main
+        git push 
