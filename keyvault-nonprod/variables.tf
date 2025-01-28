@@ -19,7 +19,7 @@ variable "sku_name" {
   default     = "standard"
   description = "Keyvault SKUs available in azure. Valid options are standard and premium"
   validation {
-    condition = (contains["standard", "premium"], var.sku_name)
+    condition = contains(["standard", "premium"], var.sku_name)
     error_message = "Keyvault SKU should be one among standard or premium"
   }
 }
@@ -77,7 +77,7 @@ variable "enable_rbac_authorization" {
 
 variable "purge_protection_enabled" {
   type = bool
-  default = 
+  default = false
   description = "Purge Protection enabled or not"
 }
 
