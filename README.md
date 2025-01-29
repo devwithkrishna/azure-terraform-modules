@@ -20,65 +20,66 @@ If you encounter any issues, please report them on the [Issues page](https://git
 ## Project Directory Structure
 ```
 .
-├─ api-management
-│   ├─ README.md
-│   ├─ apim.tf
-│   ├─ output.tf
-│   └─ variables.tf
-├─ container-registry
-│   ├─ acr.tf
-│   ├─ outputs.tf
-│   ├─ providers.tf
-│   └─ variables.tf
-├─ keyvault-nonprod
-│   ├─ README.md
-│   ├─ data.tf
-│   ├─ keyvault.tf
-│   ├─ output.tf
-│   ├─ providers.tf
-│   └─ variables.tf
-├─ kubernetes-cluster
-│   ├─ README.md
-│   ├─ data.tf
-│   ├─ kubernetes.tf
-│   ├─ output.tf
-│   ├─ providers.tf
-│   └─ variables.tf
-├─ log-analytics-workspace
-│   ├─ README.md
-│   ├─ loganalytics.tf
-│   ├─ output.tf
-│   ├─ providers.tf
-│   └─ variables.tf
-├─ storage-account
-│   ├─ README.md
-│   ├─ output.tf
-│   ├─ providers.tf
-│   ├─ storageaccount.tf
-│   └─ variables.tf
-├─ user-assigned-managed-identity
-│   ├─ README.md
-│   ├─ managed-identity.tf
-│   ├─ output.tf
-│   ├─ providers.tf
-│   └─ variables.tf
-├─ virtual-network
-│   ├─ README.md
-│   ├─ nsg.tf
-│   ├─ output.tf
-│   ├─ providers.tf
-│   ├─ variables.tf
-│   └─ vnet.tf
-├─ vmss-linux
-│   ├─ README.md
-│   ├─ cloudinit.conf
-│   ├─ data.tf
-│   ├─ load_balancer.tf
-│   ├─ outputs.tf
-│   ├─ providers.tf
-│   ├─ variables.tf
-│   └─ vmss.tf
-└─ README.md
+├── README.md
+├── api-management
+│   ├── README.md
+│   ├── apim.tf
+│   ├── output.tf
+│   └── variables.tf
+├── container-registry
+│   ├── README.md
+│   ├── acr.tf
+│   ├── outputs.tf
+│   ├── providers.tf
+│   └── variables.tf
+├── keyvault-nonprod
+│   ├── README.md
+│   ├── data.tf
+│   ├── keyvault.tf
+│   ├── output.tf
+│   ├── providers.tf
+│   └── variables.tf
+├── kubernetes-cluster
+│   ├── README.md
+│   ├── data.tf
+│   ├── kubernetes.tf
+│   ├── output.tf
+│   ├── providers.tf
+│   └── variables.tf
+├── log-analytics-workspace
+│   ├── README.md
+│   ├── loganalytics.tf
+│   ├── output.tf
+│   ├── providers.tf
+│   └── variables.tf
+├── storage-account
+│   ├── README.md
+│   ├── output.tf
+│   ├── providers.tf
+│   ├── storageaccount.tf
+│   └── variables.tf
+├── user-assigned-managed-identity
+│   ├── README.md
+│   ├── managed-identity.tf
+│   ├── output.tf
+│   ├── providers.tf
+│   └── variables.tf
+├── virtual-network
+│   ├── README.md
+│   ├── nsg.tf
+│   ├── output.tf
+│   ├── providers.tf
+│   ├── variables.tf
+│   └── vnet.tf
+└── vmss-linux
+    ├── README.md
+    ├── cloudinit.conf
+    ├── data.tf
+    ├── load_balancer.tf
+    ├── outputs.tf
+    ├── providers.tf
+    ├── variables.tf
+    └── vmss.tf
 
-9 directories, 50 files
+10 directories, 51 files
 ```
