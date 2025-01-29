@@ -1,6 +1,4 @@
-
-#!/bin/bash
-
+#! /bin/bash
 # Ensure the 'tree' command is installed
 if ! command -v tree &> /dev/null; then
     echo "'tree' command not found. Please install it to use this script."
@@ -45,9 +43,12 @@ echo '## Project Directory Structure' >> "$readme_file"
 echo '```' >> "$readme_file"
 
 # Generate the directory structure and append to README.md, ignoring certain files
-tree -I 'LICENSE|create-readme.sh|.github|.git' --charset utf-8 >> "$readme_file"
-
-# End the Markdown code block
+IGNORED_FILES="LICENSE|create-readme.sh|.github|.git"
+if ! tree_output=$(tree -I "$IGNORED_FILES" -n --dirsfirst --charset utf-8 2>/dev/null); then
+    echo "Error: Failed to generate directory structure."
+    exit 1
+fi
+echo "$tree_output" >> "$readme_file"
 echo '```' >> "$readme_file"
 
 # Print success message
