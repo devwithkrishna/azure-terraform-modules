@@ -5,5 +5,5 @@ output "aks_cluster_name" {
 
 output "aks_cluster_control_plane_url" {
   description = "FQDN of the Azure Kubernetes Managed Cluster"
-  value = azurerm_kubernetes_cluster.aks_cluster.fqdn
+  value       = azurerm_kubernetes_cluster.aks_cluster.fqdn
 }
