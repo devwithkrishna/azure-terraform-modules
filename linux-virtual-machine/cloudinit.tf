@@ -1,6 +1,7 @@
 data "template_file" "user_data" {
   # base64_encode = true
-  template = file("./cloudinit.conf")
+  template = file("${path.module}/cloudinit.conf")
+
 }
 
 data "template_cloudinit_config" "config" {
