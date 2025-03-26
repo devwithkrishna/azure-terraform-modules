@@ -28,7 +28,7 @@ output "acr_admin_password" {
   description = " Password associated with the Container Registry Admin account - if the admin account is enabled"
   value       = nonsensitive(azurerm_container_registry.acr.admin_password)
   depends_on  = [azurerm_container_registry.acr]
-  sensitive   = false
+  sensitive = false 
 }
 
 output "acr_anonymous_pull_enabled" {
