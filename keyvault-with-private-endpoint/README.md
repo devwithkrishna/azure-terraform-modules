@@ -28,7 +28,10 @@ Basic usage of this module is as follows:
       	 purge_protection_enabled  = false
       	 sku_name  = "standard"
       	 soft_delete_retention_days  = 90
+      	 subnet_name  = ""
       	 temporary  = "TRUE"
+      	 virtual_network_name  = ""
+      	 virtual_network_rg  = "value"
     }
   ```
 
@@ -37,8 +40,12 @@ Basic usage of this module is as follows:
 | Name | Type |
 |------|------|
 | [azurerm_key_vault.kv](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault) | resource |
+| [azurerm_private_dns_a_record.pvt_dns_a_record](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_a_record) | resource |
+| [azurerm_private_endpoint.pvt_end_pt](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_endpoint) | resource |
 | [azurerm_resource_group.keyvault_rg](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group) | resource |
 | [azurerm_client_config.current](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/client_config) | data source |
+| [azurerm_private_dns_zone.key_vault_dns_zone](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/private_dns_zone) | data source |
+| [azurerm_subnet.pvt_end_pt](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/subnet) | data source |
 
 ## Inputs
 
@@ -57,7 +64,10 @@ Basic usage of this module is as follows:
 | <a name="input_resource_group_name"></a> [resource_group_name](#input_resource_group_name) | Azure keyvault Rg | `string` | yes |
 | <a name="input_sku_name"></a> [sku_name](#input_sku_name) | Keyvault SKUs available in azure. Valid options are standard and premium | `string` | no |
 | <a name="input_soft_delete_retention_days"></a> [soft_delete_retention_days](#input_soft_delete_retention_days) | The number of days that items should be retained for once soft-deleted. This value can be between 7 and 90 | `number` | no |
+| <a name="input_subnet_name"></a> [subnet_name](#input_subnet_name) | Name of the subnet in which private endpoint will be created | `string` | no |
 | <a name="input_temporary"></a> [temporary](#input_temporary) | Temporary tag value in Azure | `string` | no |
+| <a name="input_virtual_network_name"></a> [virtual_network_name](#input_virtual_network_name) | Name of the virtual network in which private endpoint will be created | `string` | no |
+| <a name="input_virtual_network_rg"></a> [virtual_network_rg](#input_virtual_network_rg) | Virtual network resource group | `string` | no |
 
 ## Outputs
 
@@ -71,5 +81,6 @@ Basic usage of this module is as follows:
 | <a name="output_keyvault_location"></a> [keyvault_location](#output_keyvault_location) | Azure keyvault location |
 | <a name="output_keyvault_name"></a> [keyvault_name](#output_keyvault_name) | Azure keyvault name |
 | <a name="output_keyvault_sku"></a> [keyvault_sku](#output_keyvault_sku) | Azure Keyvault SKu |
+| <a name="output_privat_enedpoint_ipaddress"></a> [privat_enedpoint_ipaddress](#output_privat_enedpoint_ipaddress) | Azure kv private endpoint address |
 | <a name="output_public_access_enabled"></a> [public_access_enabled](#output_public_access_enabled) | Azure kv enabled public access or not |
 <!-- END_AUTOMATED_TF_DOCS_BLOCK -->
