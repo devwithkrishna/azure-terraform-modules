@@ -82,9 +82,9 @@ variable "default_nodepool_min_count" {
   type        = number
 }
 
-variable "cluster_admin_group_names" {
-  default     = [""]
-  type        = list(string)
+variable "cluster_admin_group_names"{
+  default = [""]
+  type = list(string)
   description = "Name of Azure AD groups to provide cluster admin permissions."
 }
 
@@ -183,45 +183,45 @@ variable "os_disk_size_in_gb" {
 }
 
 variable "keyvault_name" {
-  default     = ""
+  default = ""
   description = "Azure Key Vault name"
-  type        = string
+  type = string
 }
 
 variable "keyvault_rg_name" {
-  default     = ""
+  default = ""
   description = "Azure Key Vault rg name"
-  type        = string
+  type = string
 }
 
 variable "workload_identity_enabled" {
-  default     = true
+  default = true
   description = "Enable workload identity in azure or not"
-  type        = bool
+  type = bool
 }
 
 variable "enable_blob_driver" {
-  default     = true
-  description = "Enable Blob CSI driver enabled"
-  type        = bool
+ default = true
+ description = "Enable Blob CSI driver enabled"
+ type = bool
 }
 
 variable "enable_disk_driver" {
-  default     = true
-  description = "Enable Disk CSI driver enabled"
-  type        = bool
+ default = true
+ description = "Enable Disk CSI driver enabled"
+ type = bool
 }
 
 variable "enable_fileshare_driver" {
-  default     = true
-  description = "Enable Fileshare CSI driver enabled"
-  type        = bool
+ default = true
+ description = "Enable Fileshare CSI driver enabled"
+ type = bool
 }
 
 variable "kubernetes_sku_tier" {
   description = "SKU Tier that should be used for this Kubernetes Cluster"
-  default     = ""
-  type        = string
+  default = ""
+  type = string
   validation {
     condition     = contains(["Free", "Standard", "Premium"], var.kubernetes_sku_tier)
     error_message = "Kubernetes SKU should be One among Basic, Standard Or Premium."
@@ -229,19 +229,19 @@ variable "kubernetes_sku_tier" {
 }
 
 variable "private_cluster" {
-  default     = false
+  default = false
   description = "Deploy AKS cluster without exposing publically accessible endpoint"
-  type        = bool
+  type = bool
   validation {
-    condition     = var.private_cluster == true || var.private_cluster == false
+    condition = var.private_cluster == true || var.private_cluster == false
     error_message = "private_cluster value must either be true or false."
   }
 }
 
 variable "automatic_upgrade_channel" {
   description = "The upgrade channel for this Kubernetes Cluster"
-  default     = ""
-  type        = string
+  default = ""
+  type = string
   validation {
     condition     = contains(["patch", "rapid", "node-image", "stable"], var.automatic_upgrade_channel)
     error_message = "The upgrade channel for this Kubernetes Cluster should be One among Patch, Rapid, Node-Image Or Stable."
@@ -249,9 +249,9 @@ variable "automatic_upgrade_channel" {
 }
 
 variable "support_plan" {
-  default     = "KubernetesOfficial"
+  default = "KubernetesOfficial"
   description = "Specifies the support plan which should be used for this Kubernetes Cluster"
-  type        = string
+  type = string
   validation {
     condition     = contains(["AKSLongTermSupport", "KubernetesOfficial"], var.support_plan)
     error_message = "Possible values are KubernetesOfficial and AKSLongTermSupport."
@@ -259,23 +259,23 @@ variable "support_plan" {
 }
 
 variable "worker_nodepool_name" {
-  default     = "workernodes"
+  default = "workernodes"
   description = "Additional kubernetes node pool"
-  type        = string
+  type = string
 }
 
 variable "worker_nodepool_sku" {
-  default     = "Standard_D2ads_v5"
+  default = "Standard_D2ads_v5"
   description = "Azure VM Sku of worker node"
-  type        = string
+  type = string
 }
 
 variable "worker_node_spot" {
-  type        = bool
-  default     = true
+  type = bool
+  default = true
   description = "Worker nodes are spot or ondemand"
   validation {
-    condition     = var.worker_node_spot == true || var.worker_node_spot == false
+    condition = var.worker_node_spot == true || var.worker_node_spot == false
     error_message = "worker_nodepool_sku should be true or false"
   }
 }
@@ -287,17 +287,17 @@ variable "worker_nodepool_autoscaling" {
 }
 
 variable "node_public_ip_enabled" {
-  default     = false
-  type        = bool
+  default = false
+  type = bool
   description = "Should each node have a Public IP Address"
 }
 
 variable "worker_node_scaledown_mode" {
-  default     = "Deallocate"
+  default = "Deallocate"
   description = "Specifies how the node pool should deal with scaled-down nodes"
-  type        = string
+  type = string
   validation {
-    condition     = contains(["Delete", "Deallocate"], var.worker_node_scaledown_mode)
+    condition = contains(["Delete", "Deallocate"], var.worker_node_scaledown_mode)
     error_message = "This Value should be either Delete or Deallocate."
   }
 }
@@ -316,28 +316,28 @@ variable "worker_nodepool_min_count" {
 }
 
 variable "worker_nodepool_mode" {
-  type        = string
-  default     = "User"
+  type = string
+  default = "User"
   description = "Should this Node Pool be used for System or User resources"
   validation {
-    condition     = contains(["User", "System"], var.worker_nodepool_mode)
+    condition = contains(["User", "System"], var.worker_nodepool_mode)
     error_message = "This Value should be either Delete or Deallocate."
   }
 }
 
 variable "worker_nodepool_eviction_policy" {
-  default     = "Deallocate"
+  default = "Deallocate"
   description = " Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool"
-  type        = string
+  type = string
   validation {
-    condition     = contains(["Delete", "Deallocate"], var.worker_nodepool_eviction_policy)
+    condition = contains(["Delete", "Deallocate"], var.worker_nodepool_eviction_policy)
     error_message = "This Value should be either Delete or Deallocate."
   }
 }
 
 variable "kubernetes_version" {
-  type        = string
-  default     = "1.30.4"
+  type = string
+  default = "1.30.4"
   description = "Kubernetes version in AKS cluster"
   validation {
     condition     = can(regex("^[0-9]+\\.[0-9]+\\.[0-9]+$", var.kubernetes_version))
@@ -350,7 +350,7 @@ variable "authentication_method" {
   type        = string
   default     = ""
   validation {
-    condition     = contains(["identity", "service_principal"], var.authentication_method)
+    condition = contains(["identity", "service_principal"], var.authentication_method)
     error_message = "This Value should be either identity or service_principal."
   }
 }

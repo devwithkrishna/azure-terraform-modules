@@ -6,7 +6,7 @@ resource "azurerm_resource_group" "rg" {
     Orchestrator    = "Terraform"
     DisplayName     = upper(var.resource_group_name)
     ApplicationName = lower(var.application_name)
-    Temporary       = upper(var.temporary)
+    Temporary = upper(var.temporary)
   }
 }
 
@@ -21,6 +21,6 @@ resource "azurerm_log_analytics_workspace" "loganalytics_ws" {
     Orchestrator    = "Terraform"
     DisplayName     = upper(var.resource_group_name)
     ApplicationName = lower(var.application_name)
-    Temporary       = upper(var.temporary)
+    Temporary = upper(var.temporary)
   }
 }
