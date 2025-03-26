@@ -27,6 +27,7 @@ resource "azurerm_key_vault" "kv" {
 
   public_network_access_enabled = var.public_network_access_enabled
 
+  depends_on = [ azurerm_resource_group.keyvault_rg ]
   network_acls {
     bypass = "AzureServices" # Specifies which traffic can bypass the network rules
     default_action = "Deny"  # Specifies the default action when no rule from ip_rules and virtual_network_subnet_ids match
@@ -73,6 +74,8 @@ resource "azurerm_private_endpoint" "pvt_end_pt" {
   subnet_id           = data.azurerm_subnet.pvt_end_pt.id
   custom_network_interface_name = "${var.keyvault_name}-pvt-end-pt-nic"
   
+  depends_on = [ azurerm_key_vault.kv, azurerm_resource_group.keyvault_rg ]
+
   private_service_connection {
       name                           = lower("${azurerm_key_vault.kv.name}-psc")
       private_connection_resource_id = azurerm_key_vault.kv.id
@@ -94,4 +97,5 @@ resource "azurerm_private_dns_a_record" "pvt_dns_a_record" {
   resource_group_name = data.azurerm_private_dns_zone.key_vault_dns_zone.resource_group_name
   ttl                 = 300
   records             = [azurerm_private_endpoint.pvt_end_pt.private_service_connection.0.private_ip_address]
+  depends_on = [ azurerm_private_endpoint.pvt_end_pt ]
 }
