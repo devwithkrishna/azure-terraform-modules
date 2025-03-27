@@ -10,6 +10,7 @@ If you encounter any issues, please report them on the [Issues page](https://git
 * **api-management**: Located in `api-management/`
 * **container-registry**: Located in `container-registry/`
 * **keyvault-nonprod**: Located in `keyvault-nonprod/`
+* **keyvault-with-private-endpoint**: Located in `keyvault-with-private-endpoint/`
 * **kubernetes-cluster**: Located in `kubernetes-cluster/`
 * **linux-virtual-machine**: Located in `linux-virtual-machine/`
 * **log-analytics-workspace**: Located in `log-analytics-workspace/`
@@ -33,6 +34,13 @@ If you encounter any issues, please report them on the [Issues page](https://git
 │   ├── providers.tf
 │   └── variables.tf
 ├── keyvault-nonprod
+│   ├── README.md
+│   ├── data.tf
+│   ├── keyvault.tf
+│   ├── output.tf
+│   ├── providers.tf
+│   └── variables.tf
+├── keyvault-with-private-endpoint
 │   ├── README.md
 │   ├── data.tf
 │   ├── keyvault.tf
@@ -91,5 +99,5 @@ If you encounter any issues, please report them on the [Issues page](https://git
 │   └── vmss.tf
 └── README.md
 
-11 directories, 59 files
+12 directories, 65 files
 ```
