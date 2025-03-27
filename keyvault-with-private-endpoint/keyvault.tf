@@ -89,13 +89,3 @@ resource "azurerm_private_endpoint" "pvt_end_pt" {
   }
 
 }
-
-
-resource "azurerm_private_dns_a_record" "pvt_dns_a_record" {
-  name                = var.keyvault_name
-  zone_name           = data.azurerm_private_dns_zone.key_vault_dns_zone.name
-  resource_group_name = data.azurerm_private_dns_zone.key_vault_dns_zone.resource_group_name
-  ttl                 = 300
-  records             = [azurerm_private_endpoint.pvt_end_pt.private_service_connection.0.private_ip_address]
-  depends_on = [ azurerm_private_endpoint.pvt_end_pt ]
-}
