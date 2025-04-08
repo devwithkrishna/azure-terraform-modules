@@ -8,6 +8,11 @@ output "keyvault_name" {
   value       = azurerm_key_vault.kv.name
 }
 
+output "keyvault_id" {
+  description = "value of keyvault id"
+  value       = azurerm_key_vault.kv.id
+}
+
 output "keyvault_location" {
   description = "Azure keyvault location"
   value       = azurerm_key_vault.kv.location

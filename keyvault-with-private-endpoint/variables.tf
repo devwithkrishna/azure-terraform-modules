@@ -101,17 +101,17 @@ variable "soft_delete_retention_days" {
 variable "virtual_network_name" {
   type        = string
   description = "Name of the virtual network in which private endpoint will be created"
-  default    = ""  
+  default     = ""
 }
 
 variable "subnet_name" {
   type        = string
   description = "Name of the subnet in which private endpoint will be created"
-  default    = ""  
+  default     = ""
 }
 
 variable "virtual_network_rg" {
-  type = string
-  default = "value"
+  type        = string
+  default     = "value"
   description = "Virtual network resource group"
 }
