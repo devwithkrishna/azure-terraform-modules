@@ -27,10 +27,10 @@ resource "azurerm_key_vault" "kv" {
 
   public_network_access_enabled = var.public_network_access_enabled
 
-  depends_on = [ azurerm_resource_group.keyvault_rg ]
+  depends_on = [azurerm_resource_group.keyvault_rg]
   network_acls {
-    bypass = "AzureServices" # Specifies which traffic can bypass the network rules
-    default_action = "Deny"  # Specifies the default action when no rule from ip_rules and virtual_network_subnet_ids match
+    bypass                     = "AzureServices"                     # Specifies which traffic can bypass the network rules
+    default_action             = "Deny"                              # Specifies the default action when no rule from ip_rules and virtual_network_subnet_ids match
     virtual_network_subnet_ids = [data.azurerm_subnet.pvt_end_pt.id] # List of subnet ids that can access the key vault
   }
 
@@ -68,20 +68,20 @@ resource "azurerm_key_vault" "kv" {
 
 
 resource "azurerm_private_endpoint" "pvt_end_pt" {
-  name                = "${var.keyvault_name}-pvt-end-pt"
-  location            = azurerm_resource_group.keyvault_rg.location
-  resource_group_name = azurerm_resource_group.keyvault_rg.name
-  subnet_id           = data.azurerm_subnet.pvt_end_pt.id
+  name                          = "${var.keyvault_name}-pvt-end-pt"
+  location                      = azurerm_resource_group.keyvault_rg.location
+  resource_group_name           = azurerm_resource_group.keyvault_rg.name
+  subnet_id                     = data.azurerm_subnet.pvt_end_pt.id
   custom_network_interface_name = "${var.keyvault_name}-pvt-end-pt-nic"
-  
-  depends_on = [ azurerm_key_vault.kv, azurerm_resource_group.keyvault_rg ]
+
+  depends_on = [azurerm_key_vault.kv, azurerm_resource_group.keyvault_rg]
 
   private_service_connection {
-      name                           = lower("${azurerm_key_vault.kv.name}-psc")
-      private_connection_resource_id = azurerm_key_vault.kv.id
-      is_manual_connection           = false
-      subresource_names              = ["Vault"]
-    }
+    name                           = lower("${azurerm_key_vault.kv.name}-psc")
+    private_connection_resource_id = azurerm_key_vault.kv.id
+    is_manual_connection           = false
+    subresource_names              = ["Vault"]
+  }
 
   private_dns_zone_group {
     name                 = "privatelink.vaultcore.azure.net"
