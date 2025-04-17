@@ -23,6 +23,12 @@ output "mongodb_admin_username" {
   value       = random_pet.username.id
 }
 
+output "mongodb_admin_password" {
+  description = "Azure Mongo DB admin password"
+  value       = nonsensitive(random_password.password.result)
+  sensitive   = false
+}
+
 output "mongodb_compute_tier" {
   description = "Azure Mongo DB compute tier"
   value       = azurerm_mongo_cluster.mongo.compute_tier
