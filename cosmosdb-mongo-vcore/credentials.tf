@@ -1,8 +1,3 @@
-resource "random_pet" "username" {
-  length    = 2   # Number of words in the generated name
-  separator = "-" # Separator between words
-}
-
 resource "random_password" "password" {
   length           = 32
   min_lower        = 4
