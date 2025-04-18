@@ -20,7 +20,8 @@ output "public_access_enabled" {
 
 output "mongodb_admin_username" {
   description = "Azure Mongo DB admin username"
-  value       = random_pet.username.id
+  value       = azurerm_mongo_cluster.mongo.administrator_username
+  sensitive   = false
 }
 
 output "mongodb_admin_password" {

@@ -21,7 +21,7 @@ resource "azurerm_mongo_cluster" "mongo" {
   storage_size_in_gb     = var.storage_size_in_gb
   high_availability_mode = var.high_availability_mode
 
-  administrator_username = random_pet.username.id
+  administrator_username = var.admin_user
   administrator_password = random_password.password.result
 
   tags = {
@@ -32,9 +32,6 @@ resource "azurerm_mongo_cluster" "mongo" {
     Temporary       = upper(var.temporary)
 
   }
-  
-  depends_on = [
-    random_pet.username,
-    random_password.password
-  ]
+
+  depends_on = [random_password.password]
 }

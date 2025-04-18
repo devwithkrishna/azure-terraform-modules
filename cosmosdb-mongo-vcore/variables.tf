@@ -14,7 +14,16 @@ variable "mongodb_cluster_name" {
   description = "Azure Mongo DB name"
   type        = string
   default     = ""
+}
 
+variable "admin_user" {
+  description = "Azure Mongo DB admin username"
+  type        = string
+  default     = ""
+  validation {
+    condition     = length(var.admin_user) > 0
+    error_message = "The admin_user variable must be set to a non-empty string."
+  }
 }
 
 variable "environment" {
