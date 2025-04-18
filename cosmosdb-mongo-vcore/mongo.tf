@@ -24,6 +24,10 @@ resource "azurerm_mongo_cluster" "mongo" {
   administrator_username = var.admin_user
   administrator_password = random_password.password.result
 
+  create_mode = var.mongo_create_mode
+  version     = var.mongo_version
+
+
   tags = {
     Environment     = upper(var.environment)
     Orchestrator    = "Terraform"

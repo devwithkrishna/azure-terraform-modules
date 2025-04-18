@@ -94,3 +94,25 @@ variable "high_availability_mode" {
     error_message = "The high_availability_mode value must be either 'Disabled', 'ZoneRedundantPreferred'."
   }
 }
+
+variable "mongo_create_mode" {
+  description = "The create mode for the MongoDB Cluster"
+  default     = "Default"
+  type        = string
+  validation {
+    condition     = contains(["Default", "GeoReplica"], var.mongo_create_mode)
+    error_message = "The mongo_create_mode value must be either 'Default' or 'GeoReplica'."
+  }
+
+}
+
+variable "mongo_version" {
+  description = "The version of the MongoDB Cluster"
+  default     = "7.0"
+  type        = string
+  validation {
+    condition     = contains(["5.0", "6.0", "7.0"], var.mongo_version)
+    error_message = "The mongo_version value must be either '5.0', '6.0', or '7.0'."
+  }
+
+}
