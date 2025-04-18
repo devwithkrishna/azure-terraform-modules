@@ -32,4 +32,9 @@ resource "azurerm_mongo_cluster" "mongo" {
     Temporary       = upper(var.temporary)
 
   }
+  
+  depends_on = [
+    random_pet.username,
+    random_password.password
+  ]
 }
