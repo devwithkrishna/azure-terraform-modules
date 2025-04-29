@@ -55,7 +55,8 @@ variable "temporary" {
 variable "action_group_name" {
   description = "The name of the action group"
   type        = list(string)
-  default = [""]
+  default     = [""]
+
 }
 
 variable "use_exisiting_rg" {
@@ -66,8 +67,8 @@ variable "use_exisiting_rg" {
 
 variable "existing_action_group_rg" {
   description = "Existing action group resource group"
-  default     = [""]
-  type        = list(string)
+  default     = ""
+  type        = string
 }
 
 variable "use_existing_action_group" {
@@ -110,15 +111,15 @@ variable "service_health_categories" {
 
 variable "email_action_type" {
   description = "Enable emails from action group"
-  type = bool
-  default = true
+  type        = bool
+  default     = true
 }
 
 variable "azure_push_action_type" {
   description = "Enable push notifications from action group"
-  type = bool
-  default = true
-  
+  type        = bool
+  default     = true
+
 }
 
 variable "email_address" {
@@ -129,5 +130,5 @@ variable "email_address" {
     condition     = alltrue([for email in var.email_address : can(regex("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", email))])
     error_message = "Each email address must be in a valid format."
   }
-  
+
 }
