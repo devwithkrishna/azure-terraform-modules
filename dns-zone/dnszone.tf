@@ -12,7 +12,7 @@ resource "azurerm_resource_group" "dns_rg" {
 
 resource "azurerm_dns_zone" "dns" {
   name                = var.dns_zone_name
-  resource_group_name = azurerm_resource_group.mongo_rg.name
+  resource_group_name = azurerm_resource_group.dns_rg.name
 
   tags = {
     Environment     = upper(var.environment)
