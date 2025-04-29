@@ -13,7 +13,7 @@ output "resource_group_location" {
   value       = azurerm_resource_group.dns_rg.location
 }
 
-output "dns_id" {
+output "dns_zone_id" {
   description = "DNS zone ID"
   value       = azurerm_dns_zone.dns.i
 
