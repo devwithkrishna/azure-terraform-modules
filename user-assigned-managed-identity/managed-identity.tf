@@ -1,4 +1,5 @@
 resource "azurerm_resource_group" "rg" {
+  count    = var.create_in_existing_resource_group ? 0 : 1
   name     = upper(var.resource_group_name)
   location = var.location
   tags = {
@@ -13,7 +14,7 @@ resource "azurerm_resource_group" "rg" {
 resource "azurerm_user_assigned_identity" "managed_identity" {
   name                = upper(var.managed_identity_name)
   location            = var.location
-  resource_group_name = azurerm_resource_group.rg.name
+  resource_group_name = local.resource_group_name
   tags = {
     Environment     = upper(var.environment)
     Orchestrator    = "Terraform"

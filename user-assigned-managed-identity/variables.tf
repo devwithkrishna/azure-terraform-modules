@@ -44,3 +44,8 @@ variable "temporary" {
 
 }
 
+variable "create_in_existing_resource_group" {
+  default     = false
+  description = "Create managed identity in existing resource group"
+  type        = bool
+}
