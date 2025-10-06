@@ -30,7 +30,7 @@ resource "azurerm_data_share_account" "datashare" {
 
 
 resource "azurerm_data_share" "datashare" {
-  name        = var.shares_name
+  name        = var.share_name
   account_id  = azurerm_data_share_account.datashare.id
   kind        = var.share_type
   description = var.share_description
