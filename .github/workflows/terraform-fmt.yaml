@@ -11,6 +11,20 @@ on:
     - '**.tfvars'
     - '**.tfvars.json'
 
+  pull_request:
+    types:
+    - opened
+    - synchronize
+    - closed
+    - edited
+
+    branches:
+    - main
+    paths:
+    - '**.tf'
+    - '**.tfvars'
+    - '**.tfvars.json'
+
 permissions:
   contents: write
 
