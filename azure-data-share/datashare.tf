@@ -8,6 +8,9 @@ resource "azurerm_resource_group" "datashare" {
     ApplicationName = lower(var.application_name)
     Temporary       = upper(var.temporary)
   }
+  lifecycle {
+    ignore_changes = [tags] 
+  }
 }
 
 
@@ -25,6 +28,9 @@ resource "azurerm_data_share_account" "datashare" {
   # https://github.com/Azure/azure-rest-api-specs/issues/9280
 
   # tags = azurerm_resource_group.datashare.tags
+  lifecycle {
+    ignore_changes = [tags] 
+  }
 
 }
 
@@ -40,5 +46,9 @@ resource "azurerm_data_share" "datashare" {
     name       = var.snapshot_schedule_name
     recurrence = var.snapshot_recurrence
     start_time = local.computed_start_time
+  }
+
+  lifecycle {
+    ignore_changes = [tags] 
   }
 }
