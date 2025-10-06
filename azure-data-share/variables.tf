@@ -63,14 +63,14 @@ variable "share_type" {
 variable "share_description" {
   default     = ""
   type        = string
-  description = "Data share - ${var.shares_name}"
+  description = "Data share Description"
 
 }
 
 variable "datashare_terms" {
   type        = string
   description = "The terms of the Data Share."
-  default     = "Data share terms of ${var.shares_name}"
+  default     = "Data share terms of use."
 }
 
 variable "snapshot_schedule_name" {
