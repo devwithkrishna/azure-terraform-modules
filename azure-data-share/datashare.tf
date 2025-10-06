@@ -22,6 +22,8 @@ resource "azurerm_data_share_account" "datashare" {
     type = "SystemAssigned"
   }
 
-  tags = azurerm_resource_group.datashare.tags
+  # https://github.com/Azure/azure-rest-api-specs/issues/9280
+
+  # tags = azurerm_resource_group.datashare.tags
 
 }
