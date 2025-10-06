@@ -8,6 +8,7 @@ If you encounter any issues, please report them on the [Issues page](https://git
 ## Available Modules
 
 * **api-management**: Located in `api-management/`
+* **azure-data-share**: Located in `azure-data-share/`
 * **container-registry**: Located in `container-registry/`
 * **cosmosdb-mongo-vcore**: Located in `cosmosdb-mongo-vcore/`
 * **data-factory**: Located in `data-factory/`
@@ -29,6 +30,12 @@ If you encounter any issues, please report them on the [Issues page](https://git
 │   ├── README.md
 │   ├── apim.tf
 │   ├── output.tf
+│   └── variables.tf
+├── azure-data-share
+│   ├── README.md
+│   ├── datashare.tf
+│   ├── outputs.tf
+│   ├── providers.tf
 │   └── variables.tf
 ├── container-registry
 │   ├── README.md
@@ -123,5 +130,5 @@ If you encounter any issues, please report them on the [Issues page](https://git
 │   └── vmss.tf
 └── README.md
 
-15 directories, 83 files
+16 directories, 88 files
 ```

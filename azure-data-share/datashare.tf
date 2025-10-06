@@ -16,6 +16,7 @@ resource "azurerm_data_share_account" "datashare" {
   location            = azurerm_resource_group.datashare.location
   resource_group_name = azurerm_resource_group.datashare.name
 
+
   # Usiny System Assigned Managed Identity
   identity {
     type = "SystemAssigned"
