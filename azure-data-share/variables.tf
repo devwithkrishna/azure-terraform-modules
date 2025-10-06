@@ -44,14 +44,14 @@ variable "temporary" {
 
 }
 
-variable "shares_name" {
-  default = ""
-  type    = string
+variable "share_name" {
+  default     = ""
+  type        = string
   description = "Data share - Share's name"
 }
 
 variable "share_type" {
-  default = "CopyBased"
+  default     = "CopyBased"
   type        = string
   description = "Data share - Share's type"
   validation {
@@ -64,35 +64,35 @@ variable "share_description" {
   default     = ""
   type        = string
   description = "Data share - ${var.shares_name}"
-  
+
 }
 
 variable "datashare_terms" {
   type        = string
   description = "The terms of the Data Share."
-  default = ""
+  default     = "Data share terms of ${var.shares_name}"
 }
 
 variable "snapshot_schedule_name" {
-  type = string
+  type        = string
   description = "The name of the snapshot schedule."
-  default =  "Data share terms of ${var.shares_name}"
+  default     = ""
 }
 
 variable "snapshot_recurrence" {
-  type = string
+  type        = string
   description = "The recurrence of the snapshot schedule."
-  default = ""
+  default     = ""
   validation {
     condition     = contains(["Hour", "Day"], var.snapshot_recurrence)
     error_message = "The snapshot recurrence must be one of 'Hour', 'Day'."
   }
-  
+
 }
 
 variable "snapshot_start_time" {
   type        = string
   description = "The start time of the snapshot schedule in UTC format (e.g., '2023-10-01T00:00:00Z'). If not provided, it defaults to one hour from the current time. This should be in RFC 3389 format."
   default     = null
-  
+
 }
