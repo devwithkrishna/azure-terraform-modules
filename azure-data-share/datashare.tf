@@ -27,3 +27,18 @@ resource "azurerm_data_share_account" "datashare" {
   # tags = azurerm_resource_group.datashare.tags
 
 }
+
+
+resource "azurerm_data_share" "datashare" {
+  name        = var.shares_name
+  account_id  = azurerm_data_share_account.datashare.id
+  kind        = var.share_type
+  description = var.share_description
+  terms       = var.datashare_terms
+
+  snapshot_schedule {
+    name       = var.snapshot_schedule_name
+    recurrence = var.snapshot_recurrence
+    start_time = local.computed_start_time
+  }
+}
