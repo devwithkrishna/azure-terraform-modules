@@ -51,7 +51,7 @@ jobs:
 
     - name: Run the tree generation script
       run: |
-        terraform fmt -recursive -check
+        terraform fmt -recursive
 
     - name: Commit and Push Changes
       env:

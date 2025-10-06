@@ -9,7 +9,7 @@ resource "azurerm_resource_group" "datashare" {
     Temporary       = upper(var.temporary)
   }
   lifecycle {
-    ignore_changes = [tags] 
+    ignore_changes = [tags]
   }
 }
 
@@ -29,7 +29,7 @@ resource "azurerm_data_share_account" "datashare" {
 
   # tags = azurerm_resource_group.datashare.tags
   lifecycle {
-    ignore_changes = [tags] 
+    ignore_changes = [tags]
   }
 
 }
@@ -49,6 +49,6 @@ resource "azurerm_data_share" "datashare" {
   }
 
   lifecycle {
-    ignore_changes = [tags] 
+    ignore_changes = [tags]
   }
 }
