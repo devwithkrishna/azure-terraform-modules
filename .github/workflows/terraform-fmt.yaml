@@ -33,7 +33,7 @@ jobs:
     - name: Set up Terraform
       uses: hashicorp/setup-terraform@v2
       with:
-        terraform_version: 1.7.6
+        terraform_version: 1.6.0
 
     - name: Run the tree generation script
       run: |
@@ -43,6 +43,12 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ steps.token-generation.outputs.token }}
       run: |
+        diff=$(git status)
+        echo "$diff"
+        if [[ -z "$diff" ]]; then
+          echo "No changes to commit"
+          exit 0
+        fi
         git config user.name 'github-actions-bot'
         git config user.email 'actions@github.com'
         git add .
