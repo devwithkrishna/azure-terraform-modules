@@ -13,8 +13,9 @@ resource "azurerm_resource_group" "datashare" {
 
 resource "azurerm_data_share_account" "datashare" {
   name                = var.data_share_name
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
+  location            = azurerm_resource_group.datashare.location
+  resource_group_name = azurerm_resource_group.datashare.name
+
 
   # Usiny System Assigned Managed Identity
   identity {
