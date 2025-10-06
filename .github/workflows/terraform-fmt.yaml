@@ -1,21 +1,23 @@
-name: create-root-readme
+name: terraform-fmt
 
 on:
   workflow_dispatch:
 
-  workflow_run:
-    workflows: [ "generate-terraform-docs" ] # Runs after completion of generate-terraform-docs workflow
-    types:
-    - completed
+  push:
+    branches:
+    - main
+    paths:
+    - '**.tf'
+    - '**.tfvars'
+    - '**.tfvars.json'
 
 permissions:
   contents: write
 
 jobs:
-  create-root-readme:
+  terraform-fmt:
 
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
     steps:
     - name: Check out the repository
@@ -28,12 +30,14 @@ jobs:
         github_app_id: ${{ secrets.TOKEN_GENERATOR_APPID }}
         github_app_private_key: ${{ secrets.TOKEN_GENERATOR_PRIVATE_KEY }}
 
-    - name: Ensure tree command is installed
-      run: sudo apt update && sudo apt-get install -y tree
+    - name: Set up Terraform
+      uses: hashicorp/setup-terraform@v2
+      with:
+        terraform_version: 1.6.0
 
     - name: Run the tree generation script
       run: |
-        bash create-readme.sh
+        terraform fmt -recursive -check
 
     - name: Commit and Push Changes
       env:
@@ -48,5 +52,5 @@ jobs:
         git config user.name 'github-actions-bot'
         git config user.email 'actions@github.com'
         git add .
-        git commit -m "Update documentation"
+        git commit -m "terraform fmt checks"
         git push 

@@ -34,6 +34,7 @@ If you encounter any issues, please report them on the [Issues page](https://git
 ├── azure-data-share
 │   ├── README.md
 │   ├── datashare.tf
+│   ├── locals.tf
 │   ├── outputs.tf
 │   ├── providers.tf
 │   └── variables.tf
@@ -130,5 +131,5 @@ If you encounter any issues, please report them on the [Issues page](https://git
 │   └── vmss.tf
 └── README.md
 
-16 directories, 88 files
+16 directories, 89 files
 ```
