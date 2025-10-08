@@ -17,6 +17,7 @@ func TestAzureDataShareModule(t *testing.T) {
 	suffix := "go"
 	rgName := fmt.Sprintf("rg-terratest-%s", suffix)
 	dataShareName := fmt.Sprintf("ds-terratest-%s", suffix)
+	fmt.Print("Running test with suffix: ", suffix, " rgName: ", rgName, " DataShareName: ", dataShareName, "\n")
 	// scheduleName := fmt.Sprintf("sched-terratest-%s", suffix)
 	// RFC3339-ish timestamp for snapshot_start_time
 	// snapshotStart := time.Now().UTC().Add(1 * time.Hour).Format(time.RFC3339)
@@ -54,6 +55,16 @@ func TestAzureDataShareModule(t *testing.T) {
 
 	// ensure cleanup
 	defer terraform.Destroy(t, terraformOptions)
+	fmt.Print("Validating the terraform code...\n")
+	// Validate Terraform configuration
+	terraform.Validate(t, &terraform.Options{
+		TerraformDir: "../examples/simple"})
+
+	fmt.Print("Validated the terraform code...\n")
+	// Generate a plan (string output)
+	fmt.Print("Terraform plan...\n")
+	planOutput := terraform.Plan(t, terraformOptions)
+	t.Log(planOutput)
 
 	// init + apply
 	terraform.InitAndApply(t, terraformOptions)
