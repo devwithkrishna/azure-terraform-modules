@@ -73,7 +73,8 @@ func TestAzureDataShareModule(t *testing.T) {
 	rgOut := terraform.Output(t, terraformOptions, "azure_datashare_rg")
 	dsNameOut := terraform.Output(t, terraformOptions, "datashare_name")
 	dsIDOut := terraform.Output(t, terraformOptions, "datashare_id")
-
+	identityOut := terraform.Output(t, terraformOptions, "identity")
+	t.Logf("Identity: %s", identityOut)
 	t.Logf("Outputs: rg=%s, datashare=%s, id=%s", rgOut, dsNameOut, dsIDOut)
 
 	// basic assertions
